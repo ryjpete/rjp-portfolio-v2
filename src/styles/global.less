@@ -1,0 +1,80 @@
+@import './imports.less';
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  .fs(62.5%);
+  // .fs(112.5%);
+  .h(100%);
+  overflow-y: scroll;
+  
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "kern", "liga", "clig", "calt";
+    -ms-font-feature-settings: "kern", "liga", "clig", "calt";
+    -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+    .bgc(@blue_1);
+    font-feature-settings: "kern", "liga", "clig", "calt";
+    font-kerning: normal;
+    .ff(@arya,sans-serif);
+    .fs(1rem);
+    .fw(300);
+    .h(inherit);
+    .mar();
+    word-wrap: break-word;
+  
+    #___gatsby {
+      .h(inherit);
+  
+      #gatsby-focus-wrapper {
+        .dis(f);
+        .flexd(c);
+        .h(inherit);
+        overflow-x: hidden;
+  
+        .tl-edges {
+          .h(inherit);
+  
+          .tl-wrapper {
+            .h(inherit);
+          }
+        }
+      }
+    }
+
+    #content {
+      .mar(160px,auto,auto,auto);
+      .w(80%);
+    }
+  }
+
+  h1 {
+    color: @black;
+    .ff(@arya,sans-serif);
+    // .fs(2.4rem);
+    .fs(8vw);
+    .fw(900);
+    .lh(2.6rem);
+    .m(t,0);
+    .m(b,25px);
+    .tt(u);
+  }
+  p {
+    color: @black;
+    .fs(3.5vw);
+    .m(t,0);
+    .m(b,30px);
+
+    &:last-of-type {
+      .m(b,0);
+    }
+  }
+}
+
+.actions {
+  .ai(fs);
+  .dis(f);
+  .flexd(c);
+}

@@ -1,42 +1,56 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+import styles from './header.module.less'
+import Logo from '../logo/logo'
+
+const Header = () => (
+  <header className={styles.header}>
+    <div className={styles.headerLogo}>
+
+      <div className={styles.logoHolder}>
+        <Logo
+          color='#000000' />
+      </div>
+
+      <svg
+        className={styles.triangleWhite}
+        width="239"
+        height="161"
+        viewBox="0 0 239 161"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+        d="M78.8382 159.915L168.57 -174.969L413.722 70.1835L78.8382 159.915Z"
+        fill="white"
+        stroke="black" />
+      </svg>
+
+      <svg
+        className={styles.triangleBlack}
+        width="229"
+        height="176"
+        viewBox="0 0 229 176"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M78.8382 174.915L168.57 -159.969L413.722 85.1835L78.8382 174.915Z"
+          fill="black"
+          stroke="black" />
+      </svg>
+
     </div>
   </header>
 )
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+// Header.propTypes = {
+//   siteTitle: PropTypes.string,
+// }
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
+// Header.defaultProps = {
+//   siteTitle: ``,
+// }
 
 export default Header

@@ -1,0 +1,70 @@
+@import '../../styles/imports.less';
+
+.footer {
+  .ai(b);
+  .dis(f);
+  .flexd(r);
+  
+  .half {
+    .p(t,70px);
+    .p(b,70px);
+    .w(45%);
+    
+    &.copy {
+      .bgc(@blue_3);
+      .p(l,5%);
+
+      .copyright {
+        .ai(c);
+        .dis(f);
+        .flexd(r);
+        .m(t,5.5rem);
+
+        svg {
+          .m(r,10px);
+        }
+
+        p {
+          .ai(fe);
+          color: @copyFooter;
+          .dis(f);
+          .fs(1.4rem);
+          .lh(1.8rem);
+        }
+      }
+      
+
+      .logos {
+        .dis(f);        
+
+        a {
+          .m(l,9px);
+
+          img {
+            .dis(b);
+          }
+        }
+      }
+    }
+    
+    &.social {
+      .bgc(@blue_2);
+      .p(r,5%);
+      .ta(r);
+
+      .socialImages {
+        .dis(f);
+        .flexd(r);
+        .jc(fe);
+
+        a {
+          .m(l,10px);
+  
+          img {
+            .dis(b);
+          }
+        }
+      }
+    }
+  }
+}

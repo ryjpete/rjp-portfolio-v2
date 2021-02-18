@@ -1,0 +1,19 @@
+@import '../../styles/imports.less';
+
+.header {
+  .pos(f,0,0,auto,0);
+  
+  .headerLogo {
+    .pos(a,0,0,auto,auto);
+    z-index: 100;
+
+    .logoHolder {
+      .pos(a,23px,25px,auto,auto);
+      z-index: 101;
+    }
+
+    .triangleWhite {
+      &:extend(.header .headerLogo);
+    }
+  }
+}
