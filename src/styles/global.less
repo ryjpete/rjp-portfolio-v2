@@ -50,20 +50,45 @@ html {
     }
   }
 
+  h1,
+  h2,
+  h3,
+  p:last-of-type {
+    .mar();
+  }
+
+  h1,
+  h2,
+  h3 {
+    .ff(@arya,monospace);
+  }
+
   h1 {
     color: @black;
-    .font(@arya,6.4rem,6.4rem,700);
+    .fs(6.4rem);
+    .fw(700);
+    .lh(6.4rem);
   }
-  // p {
-  //   color: @black;
-  //   .fs(3.5vw);
-  //   .m(t,0);
-  //   .m(b,30px);
+  h2 {
+    .fs(4.8rem);
+    .fw(400);
+    .lh(4.8rem);
+    .m(b,3.2rem);
+  }
+  h3 {
+    .fs(3.6rem);
+    .fw(400);
+    .lh(3.6rem);
+  }
+  p {
+    color: @black;
+    .font(@anon,1.8rem,2.5rem,400);
+  }
+}
 
-  //   &:last-of-type {
-  //     .m(b,0);
-  //   }
-  // }
+section {
+  .pos(r,auto,auto,auto,auto);
+  z-index: 3;
 }
 
 .actions {

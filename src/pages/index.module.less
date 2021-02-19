@@ -1,5 +1,121 @@
 @import '../styles/imports.less';
 
 .welcome {
-  
+  .dis(f);
+  .jc(fe);
+  .pad(0,10%,0,10%);
+  z-index: 4;
+
+  > * {
+    .pos(r,auto,auto,auto,auto);
+    z-index: 1;
+  }
+
+  .polygon {
+    .h(350px);
+    .w(100%);
+    z-index: 0;
+
+    &.polygon {
+      &Top {
+        .pos(a,auto,0,50%,auto);
+      }
+
+      &Bottom {
+        .pos(a,50%,0,auto,auto);
+      }
+    }
+
+    svg {
+      .h(inherit);
+      .w(inherit);
+
+      polygon {
+        fill: @black;
+      }
+    }
+  }
+
+  p {
+    color: @white;
+    .maxW(560px);
+  }
+
+  &::after {
+    .bgc(@orange);
+    content: '';
+    .h(100px);
+    .pos(a,50%,0,auto,0);
+    .w(100%);
+    z-index: -1;
+  }
+}
+
+.orangeAction {
+  .bgc(@orange);
+  .pad(275px,10%,100px,10%);
+
+  h2,
+  p {
+    color: @blue_4;
+  }
+
+  .content {
+    .ai(fe);
+    .dis(f);
+    .flexd(r);
+    .jc(sb);
+    .m(r,5%);
+
+    p {
+      .w(50%);
+    }
+  }
+
+  &::after {
+    .bgc(@blue_4);
+    content: '';
+    .h(100%);
+    .pos(a,0,0,0,auto);
+    .w(10%);
+  }
+}
+
+.blueAction {
+  .bgc(@blue_4);
+  .pad(100px,10%,100px,10%);
+
+  .content {
+    .ai(fs);
+    .dis(f);
+    .flexd(r);
+
+    p {
+      .m(l,2%);
+      .w(80%);
+    }
+  }
+
+  button {
+    .mar(40px,0,0,31%);
+  }
+
+  .polygon {
+    .h(80px);
+    .w(100%);
+    z-index: 0;
+
+    &.polygonBottom {
+      .pos(a,100%,0,auto,auto);
+    }
+
+    svg {
+      .h(inherit);
+      .w(inherit);
+
+      polygon {
+        fill: @blue_4;
+      }
+    }
+  }
 }

@@ -37,6 +37,7 @@ module.exports = {
         google: {
           families: [
             `Arya:400,700`,
+            `Anonymous Pro:400`,
           ],
         },
       },

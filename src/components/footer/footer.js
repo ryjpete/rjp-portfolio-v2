@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import styles from './footer.module.less'
 import Logo from '../logo/logo'
@@ -8,14 +7,13 @@ import Logo from '../logo/logo'
 import imgFigma from '../../images/logoFigma.png'
 import imgGatsby from '../../images/logoGatsby.png'
 import imgContentful from '../../images/logoContentful.png'
-// import imgFacebook from '../../images/facebook.png'
 import imgLinkedIn from '../../images/linkedin.png'
 import imgGitHub from '../../images/github.png'
 import imgCodecademy from '../../images/codecademy.png'
 
 const Images = (
   <span className={styles.logos}>
-    <Link
+    <a
       to='https://www.figma.com/'
       target='_blank'
     >
@@ -24,8 +22,8 @@ const Images = (
         alt='Figma'
         height='27'
         width='18' />
-    </Link>
-    <Link
+    </a>
+    <a
       to='https://www.gatsbyjs.com/'
       target='_blank'
     >
@@ -34,8 +32,8 @@ const Images = (
         alt='Gatsby'
         height='27'
         width='27' />
-    </Link>
-    <Link
+    </a>
+    <a
       to='https://www.contentful.com/'
       target='_blank'
     >
@@ -44,13 +42,13 @@ const Images = (
         alt='Contentful'
         height='27'
         width='24' />
-    </Link>
+    </a>
   </span>
 )
 
 const SocialImages = (
   <div className={styles.socialImages}>
-    <Link
+    <a
       to='https://www.linkedin.com/in/ryanjenningspeterson/'
       target='_blank'
     >
@@ -59,8 +57,8 @@ const SocialImages = (
         alt='LinkedIn'
         height='40'
         width='40' />
-    </Link>
-    <Link
+    </a>
+    <a
       to='https://github.com/ryjpete'
       target='_blank'
     >
@@ -69,8 +67,8 @@ const SocialImages = (
         alt='GitHub'
         height='40'
         width='40' />
-    </Link>
-    <Link
+    </a>
+    <a
       to='https://www.codecademy.com/profiles/ryanjpeterson'
       target='_blank'
     >
@@ -79,7 +77,7 @@ const SocialImages = (
         alt='Codecademy'
         height='40'
         width='40' />
-    </Link>
+    </a>
   </div>
 )
 
