@@ -1,0 +1,37 @@
+/**
+ * Responsive
+ */
+// Screen - Min & Max Width
+.rMinMaxW(@minW; @maxW; @rules) { 
+  @media only screen and (min-width: @minW) and (max-width: @maxW) {
+      @rules();
+  }
+}
+
+// Screen - Max Width
+.rMaxW(@mw; @rules) {
+  @media only screen and (max-width: @mw) {
+      @rules();
+  }
+}
+
+// Screen - Min Width
+.rMinW(@mw; @rules) {
+  @media only screen and (min-width: @mw) {
+      @rules();
+  }
+}
+
+// Screen - Max Height
+.rMaxH(@mh; @rules) {
+  @media only screen and (max-height: @mh) {
+      @rules();
+  }
+}
+
+// Screen - Min Height
+.rMinH(@mh; @rules) {
+  @media only screen and (min-height: @mh) {
+      @rules();
+  }
+}

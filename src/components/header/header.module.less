@@ -2,18 +2,29 @@
 
 .header {
   .pos(f,0,0,auto,0);
+  z-index: 10000;
   
   .headerLogo {
-    .pos(a,0,0,auto,auto);
+    .pos(a,-40px,-40px,auto,auto);
     z-index: 100;
 
+      .rMinW(575px, {
+        .pos(a,0,0,auto,auto);
+      });
+      
     .logoHolder {
-      .pos(a,23px,25px,auto,auto);
+      .pos(a,45px,45px,auto,auto);
       z-index: 101;
-    }
 
+        .rMinW(575px, {
+          top: 23px;
+          right: 25px;
+        });
+    }
+    
     .triangleWhite {
-      &:extend(.header .headerLogo);
+      .pos(a,0,0,auto,auto);
+      z-index: 100;
     }
   }
 }

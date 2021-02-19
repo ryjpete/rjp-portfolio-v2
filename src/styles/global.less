@@ -4,10 +4,17 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
-  .fs(62.5%);
-  // .fs(112.5%);
-  // .h(100%);
-  // overflow-y: scroll;
+  .fs(50%);
+
+    .rMinW(576px, {
+      .fs(52%);
+    });
+    .rMinW(768px, {
+      .fs(55%);
+    });
+    .rMinW(992px, {
+      .fs(65.5%);
+    });
   
   body {
     -webkit-font-smoothing: antialiased;
@@ -79,6 +86,7 @@ html {
     .fs(3.6rem);
     .fw(400);
     .lh(3.6rem);
+    .m(b,2rem);
   }
   p {
     color: @black;
