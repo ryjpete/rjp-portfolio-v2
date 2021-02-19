@@ -6,8 +6,8 @@ html {
   box-sizing: border-box;
   .fs(62.5%);
   // .fs(112.5%);
-  .h(100%);
-  overflow-y: scroll;
+  // .h(100%);
+  // overflow-y: scroll;
   
   body {
     -webkit-font-smoothing: antialiased;
@@ -52,25 +52,18 @@ html {
 
   h1 {
     color: @black;
-    .ff(@arya,sans-serif);
-    // .fs(2.4rem);
-    .fs(8vw);
-    .fw(900);
-    .lh(2.6rem);
-    .m(t,0);
-    .m(b,25px);
-    .tt(u);
+    .font(@arya,6.4rem,6.4rem,700);
   }
-  p {
-    color: @black;
-    .fs(3.5vw);
-    .m(t,0);
-    .m(b,30px);
+  // p {
+  //   color: @black;
+  //   .fs(3.5vw);
+  //   .m(t,0);
+  //   .m(b,30px);
 
-    &:last-of-type {
-      .m(b,0);
-    }
-  }
+  //   &:last-of-type {
+  //     .m(b,0);
+  //   }
+  // }
 }
 
 .actions {
