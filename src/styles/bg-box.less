@@ -9,7 +9,7 @@
     .bga(@bga) when (@bga = ini)  { background-attachment: initial; }
     .bga(@bga) when (@bga = inh)  { background-attachment: inherit; }
 
-// ------------------------------------------------------------------------------------------
+
 
 //  background-blend-mode
     /*
@@ -27,7 +27,7 @@
     .bgbm(@bgbm) when (@bgbm = c)   { background-blend-mode: color; }
     .bgbm(@bgbm) when (@bgbm = l)   { background-blend-mode: luminosity; }
 
-// ------------------------------------------------------------------------------------------
+
 
 //  background-clip
     /*
@@ -41,7 +41,7 @@
     .bgclip(@bgclip) when (@bgclip = ini)   { background-clip: initial; }
     .bgclip(@bgclip) when (@bgclip = inh)   { background-clip: inherit; }
 
-// ------------------------------------------------------------------------------------------
+
 
 //  background-color
     /*
@@ -52,7 +52,7 @@
         background-color: @bgc;
     }
 
-// ------------------------------------------------------------------------------------------
+
 
 //  background-image
     /*
@@ -63,7 +63,7 @@
         background-image: url(@bgi);
     }
 
-// ------------------------------------------------------------------------------------------
+
 
 //  background-origin
     /*
@@ -76,7 +76,7 @@
     .bgo(@bgo) when (@bgo = ini)  { background-origin: initial; }
     .bgo(@bgo) when (@bgo = inh)  { background-origin: inherit; }
 
-// ------------------------------------------------------------------------------------------
+
 
 //  background-position
     /*
@@ -87,7 +87,7 @@
         background-position: @bgp;
     }
 
-// ------------------------------------------------------------------------------------------
+
     
     //  background-repeat
     /*
@@ -101,7 +101,7 @@
     .bgr(@bgr) when (@bgr = ini)  { background-repeat: initial; }
     .bgr(@bgr) when (@bgr = inh)  { background-repeat: inherit; }
 
-// ------------------------------------------------------------------------------------------
+
 
 //  background-size
     /*
@@ -112,4 +112,13 @@
         background-size: @bgs;
     }
 
-// ------------------------------------------------------------------------------------------
+
+
+//  box-shadow
+    /*
+    Aattaches one or more shadows to an element.
+    https://www.w3schools.com/cssref/css3_pr_box-shadow.asp
+    */
+    .boxsh(@h,@v,@blur,@spread,@c) {
+        box-shadow: @h @v @blur @spread @c;
+    }

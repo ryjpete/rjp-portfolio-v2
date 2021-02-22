@@ -1,0 +1,133 @@
+@import '../../styles/imports.less';
+
+.menu {
+
+  // Menu Wrapper
+  &Wrapper {
+    .pos(a,0,auto,auto,0);
+    .h(100vh);
+    overflow: hidden;
+    .w(100vw);
+
+    .menu {
+      .bgc();
+      .h(100%);
+      .pos(r,auto,auto,auto,auto);
+      z-index: 1;
+      .w(100%);
+
+      .btn {
+        .ai(c);
+        .bgc();
+        cursor: pointer;
+        .dis(f);
+        .flexw(w);
+        .h(75px);
+        .jc(c);
+        .pos(a,20px,auto,auto,20px);
+        .w(75px);
+        will-change: transform;
+        z-index: 1;
+        
+        &.active {
+          &:before {
+            .bgc(@orange);
+            box-shadow: none;
+            transform: scale(125);
+          }
+        }
+        
+        &:before {
+          .bgc(@white);
+          .border(1px,solid,@black);
+          .boxsh(7px,9px,0,0,@black);
+          content: "";
+          cursor: pointer;
+          .h(75px);
+          .pos(a,0,auto,auto,0);
+          .w(75px);
+          z-index: -1;
+          transform-origin: center 70%;
+          transform: scale(1);
+          transition: all 0.35s ease-out;
+        }
+
+        .hamburger {
+          transition: all .3s ease-out;
+        
+          .patty {
+            .bgc(@black);
+            .h(3px);
+            .mar(0,0,6px,0);
+            opacity: 1;
+            transform: translate(0) rotate(0deg);
+            transition: all .2s ease-out;
+            .w(32px);
+            will-change: transform, opacity;
+        
+            &:last-child {
+              .m(b,0);
+            }
+          }
+        
+          &.close {
+            transform: rotate(0deg);
+            
+            .patty {
+              .bgc(@white);
+
+              &:nth-child(1) {
+                transform: translate(-10px, 4px) rotate(-45deg) scale(0.5, 1);
+              }
+              &:nth-child(3) {
+                transform: translate(-10px, -4px) rotate(45deg) scale(0.5, 1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &Content {
+    .pad(10%,15%,10%,15%);
+    .pos(a,10%,10%,10%,10%);
+    visibility: hidden;
+    z-index: 3;
+
+    &.active {
+      visibility: visible;
+    }
+
+    nav {
+      ul {
+        list-style: none;
+        .pad();
+        .ta(r);
+
+        li {
+          .mar(25px,0,25px,0);
+          opacity: 0;
+          .ta(c);
+          transform: translateY(100px);
+          transition: all 0.4s ease-out;
+          // transition-delay: 0.4s;
+          will-change: transform, opacity;
+          
+          &.active {
+            opacity: 1;
+            transform: translateY(0);
+          }
+
+          a {
+            color: @white;
+            .fs(5vw);
+            .fw(300);
+            .td(none);
+          }
+        }
+      }
+    }
+  }
+
+}

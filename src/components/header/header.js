@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 // import PropTypes from 'prop-types'
 
 import styles from './header.module.less'
 import Logo from '../logo/logo'
+import Menu from '../menu/menu'
 
 const Header = () => (
   <header className={styles.header}>
+    <Menu />
+
     <div className={styles.headerLogo}>
 
       <div className={styles.logoHolder}>
