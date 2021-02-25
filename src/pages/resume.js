@@ -42,6 +42,10 @@ const TechSkills = (props) => {
     { skill: 'Figma', percent: 85, },
   ]
 
+  skills.sort((a, b) => (a.percent < b.percent ? 1 : -1))
+
+  console.log(skills)
+
   return (    
     <section className={styles.techSkills}>
       <h2>{props.title}</h2>
@@ -87,6 +91,57 @@ const TechSkills = (props) => {
 const ProExp = (props) => {
 
   const employment = [
+    {
+      employer: 'Job Hunter, & Self-Educator',
+      positions: [
+        {
+          title: '',
+          startMonth: 'Jul',
+          startYear: '2020',
+          endMonth: 'Present',
+          endYear: '',
+          points: [
+            { bullet: `Initiated self-education process utilizing online tutorials and Codecademy`},
+            { bullet: `Touched up on technologies already in use while dipping toes in new languages / libraries`},
+          ],
+          stacks: [
+            { spec: 'React', },
+            { spec: 'JavaScript', },
+            { spec: 'PHP', },
+            { spec: 'Golang', },
+            { spec: 'Git', },
+            { spec: 'CLI', },
+            { spec: 'Figma', },
+            { spec: 'Contentful', },
+          ],
+        },
+      ],
+    },
+    {
+      employer: 'Freelancer',
+      positions: [
+        {
+          title: '',
+          startMonth: 'Sep',
+          startYear: '2020',
+          endMonth: 'Jan',
+          endYear: '2021',
+          points: [
+            { bullet: `Picked up various freelance projects within the WordPress realm` },
+            { bullet: `Full WordPress site build utilizing Figma mock-ups`},
+          ],
+          stacks: [
+            { spec: 'WordPress', },
+            { spec: 'PHP', },
+            { spec: 'JavaScript', },
+            { spec: 'jQuery', },
+            { spec: 'CSS', },
+            { spec: 'LESS', },
+            { spec: 'Figma', },
+          ],
+        },
+      ],
+    },
     {
       employer: 'Connections Marketing',
       positions: [

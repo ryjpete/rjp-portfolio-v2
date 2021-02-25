@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-// import PropTypes from 'prop-types'
+import React from 'react'
 
 import styles from './header.module.less'
 import Logo from '../logo/logo'
@@ -40,20 +39,12 @@ const Header = () => (
       >
         <path
           d="M78.8382 174.915L168.57 -159.969L413.722 85.1835L78.8382 174.915Z"
-          fill="black"
+          fill="rgba(0,0,0,0.7)"
           stroke="black" />
       </svg>
 
     </div>
   </header>
 )
-
-// Header.propTypes = {
-//   siteTitle: PropTypes.string,
-// }
-
-// Header.defaultProps = {
-//   siteTitle: ``,
-// }
 
 export default Header
