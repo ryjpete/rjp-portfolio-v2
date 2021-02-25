@@ -1,0 +1,75 @@
+@import '../../styles/imports.less';
+
+.intro {
+  .bgc(@black);
+  .dis(f);
+  .jc(fe);
+
+    .rMinW(768px,{
+      .bgc();
+      .p(t,0);
+      .p(b,0);
+    });
+
+  
+  > * {
+    .pos(r,auto,auto,auto,auto);
+    z-index: 1;
+  }
+
+  .content {
+    .maxW(560px);
+
+      .rMinW(768px,{
+        .pos(a,50%,auto,auto,auto);
+        transform: translateY(-50%);
+      });
+
+    > * {
+      color: @white;
+    }
+  }
+
+
+  // SVG Polygon
+  .polygon {
+    .h(55px);
+    .pos(r,auto,auto,auto,auto);
+    .w(100%);
+    z-index: 0;
+
+      .rMinW(576px,{
+        .h(135px);
+      });
+      .rMinW(768px,{
+        .h(350px);
+      });
+
+
+    &.polygon {
+
+      svg {
+        .h(inherit);
+        .w(inherit);
+      }
+
+      // Top polygon
+      &Top {
+        .pos(a,auto,0,100%,auto);
+
+          .rMinW(768px,{
+            bottom: 50%;
+          });
+      }
+
+      // Bottom polygon
+      &Bottom {
+        .pos(a,100%,0,auto,auto);
+
+          .rMinW(768px,{
+            top: 50%;
+          });
+      }
+    }
+  }
+}

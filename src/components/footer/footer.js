@@ -14,8 +14,9 @@ import imgCodecademy from '../../images/codecademy.png'
 const Images = (
   <span className={styles.logos}>
     <a
-      to='https://www.figma.com/'
+      href='https://www.figma.com/'
       target='_blank'
+      rel='noreferrer'
     >
       <img
         src={imgFigma}
@@ -24,8 +25,9 @@ const Images = (
         width='18' />
     </a>
     <a
-      to='https://www.gatsbyjs.com/'
+      href='https://www.gatsbyjs.com/'
       target='_blank'
+      rel='noreferrer'
     >
       <img
         src={imgGatsby}
@@ -34,8 +36,9 @@ const Images = (
         width='27' />
     </a>
     <a
-      to='https://www.contentful.com/'
+      href='https://www.contentful.com/'
       target='_blank'
+      rel='noreferrer'
     >
       <img
         src={imgContentful}
@@ -49,8 +52,9 @@ const Images = (
 const SocialImages = (
   <div className={styles.socialImages}>
     <a
-      to='https://www.linkedin.com/in/ryanjenningspeterson/'
+      href='https://www.linkedin.com/in/ryanjenningspeterson/'
       target='_blank'
+      rel='noreferrer'
     >
       <img
         src={imgLinkedIn}
@@ -59,8 +63,9 @@ const SocialImages = (
         width='40' />
     </a>
     <a
-      to='https://github.com/ryjpete'
+      href='https://github.com/ryjpete'
       target='_blank'
+      rel='noreferrer'
     >
       <img
         src={imgGitHub}
@@ -69,8 +74,9 @@ const SocialImages = (
         width='40' />
     </a>
     <a
-      to='https://www.codecademy.com/profiles/ryanjpeterson'
+      href='https://www.codecademy.com/profiles/ryanjpeterson'
       target='_blank'
+      rel='noreferrer'
     >
       <img
         src={imgCodecademy}

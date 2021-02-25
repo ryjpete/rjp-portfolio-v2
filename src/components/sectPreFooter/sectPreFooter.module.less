@@ -1,0 +1,77 @@
+@import '../../styles/imports.less';
+
+.preFooter {
+  .bgc(@blue_4);
+  .p(t,10rem);
+  .p(b,5rem);
+  z-index: 2;
+
+
+  .content {
+    .ai(fs);
+    .dis(f);
+    .flexd(c);
+
+      .rMinW(576px,{
+        .flexd(r);
+      });
+
+    
+    h3 {
+      .rMinW(576px,{
+        .w(40%);
+      });
+      .rMinW(768px,{
+        .w(20%);
+      });
+    }
+
+    p {
+      .m(l,15%);
+
+        .rMinW(576px,{
+          .m(l,5%);
+          .w(55%);
+        });
+        .rMinW(768px,{
+          .w(75%);
+        });
+    }
+  }
+
+
+  button {
+    .mar(4rem,auto,auto,15%);
+
+      .rMinW(576px,{
+        .m(l,45%);
+      });
+      .rMinW(768px,{
+        .m(l,25%);
+      });
+  }
+
+
+  .polygon {
+    .h(30px);
+    .w(100%);
+    z-index: 0;
+
+      .rMinW(992px,{
+        .h(80px);
+      });
+
+    &.polygonBottom {
+      .pos(a,100%,0,auto,auto);
+
+      svg {
+        .h(inherit);
+        .w(inherit);
+
+        polygon {
+          fill: @blue_4;
+        }
+      }
+    }
+  }
+}

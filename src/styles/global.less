@@ -60,14 +60,15 @@ html {
   h1,
   h2,
   h3,
-  p:last-of-type {
+  h4 {
     .mar();
   }
 
   h1,
   h2,
-  h3 {
-    .ff(@arya,monospace);
+  h3,
+  h4 {
+    .ff(@arya,sans-serif);
   }
 
   h1 {
@@ -88,15 +89,47 @@ html {
     .lh(3.6rem);
     .m(b,2rem);
   }
-  p {
+  h4 {
+    .fs(2.4rem);
+    .fw(400);
+    .lh(2.4rem);
+    .m(b,1.8rem);
+  }
+  p,
+  ul,
+  ol {
     color: @black;
     .font(@anon,1.8rem,2.5rem,400);
+    .m(t,0);
+    
+    &:last-of-type {
+      .m(b,0);
+    }
+  }
+  ul,
+  ol {
+    .mar();
+    .pad();
+
+    li {
+      .m(b,1rem);
+      .pos(r,auto,auto,auto,auto);
+    }
+  }
+  ul {
+    list-style: none;
   }
 }
 
 section {
+  .pad(5rem,10%,5rem,10%);
   .pos(r,auto,auto,auto,auto);
   z-index: 3;
+
+  .polygon {
+    .w(100%);
+    z-index: 0;
+  }
 }
 
 .actions {
