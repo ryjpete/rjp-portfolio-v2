@@ -1,6 +1,7 @@
 @import '../../styles/imports.less';
 
 .header {
+  .dis(f);
   .pos(f,0,0,auto,0);
   z-index: 10000;
   
@@ -9,22 +10,56 @@
     z-index: 100;
 
       .rMinW(576px, {
-        .pos(a,0,0,auto,auto);
+        .pos(a,-1px,-1px,auto,auto);
       });
       
     .logoHolder {
       .pos(a,45px,45px,auto,auto);
-      z-index: 101;
+      z-index: 102;
 
         .rMinW(576px, {
           top: 23px;
           right: 25px;
         });
     }
-    
-    .triangleWhite {
+
+    // SVG Polygon
+    .polygon {
       .pos(a,0,0,auto,auto);
-      z-index: 100;
+
+      &.polygon {
+
+        // Top
+        &Top {
+          .h(160px);
+          .w(160px);
+          z-index: 101;
+
+          polygon {
+            fill: @white;
+            opacity: 1;
+            stroke: @black;
+          }
+        }
+
+        // Bottom
+        &Bottom {
+          .h(180px);
+          transition: all .15s ease-in-out;
+          .w(180px);
+          z-index: 100;
+
+          svg {
+            .h(100%);
+            .w(100%);
+
+            polygon {
+              fill: rgba(0,0,0,0.7);
+              opacity: 1;
+            }
+          }
+        }
+      }
     }
   }
 }

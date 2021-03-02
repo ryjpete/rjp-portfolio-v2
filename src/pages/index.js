@@ -24,19 +24,33 @@ const IndexPage = () => (
       top={true}
       bottom={true}
     >
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam.</p>
+      <p>I'm a creative person. Always have been. Drawing, writing, building, strumming, designing, developing... It's all driven by creativity.</p>
     </SectIntro>
 
     
-    <SectOrange title='H2 Header'>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.</p>
+    <SectOrange title='Always Evolving'>
+      <p>
+        A new dish to taste. As of yet unseen sights to gaze upon. State-of-the-art technologies to study and test out.
+        <br /><br />
+        Things are always changing, and as an inquisitive human being, I enjoy the journey of trying new things and evolving into an upgraded version of myself.
+        <br /><br />
+        It's all about that next adventure.
+      </p>
 
       <Button
         color='white'
-        copy="Let's go!" />
+        copy='Learn more'
+        href='about' />
     </SectOrange>
 
-    <SectPreFooter />
+    <SectPreFooter title='Professional and Bullet-Pointed'>
+      <p>I get it. No one really wants to read everything I have to say. I don't agree with it, but I understand. So, for those that don't care about anything other than my professional life in bullet points, click the button and head to my online resume. Short and sweet.</p>
+        
+      <Button
+        color='black'
+        copy='Resume'
+        href='resume' />
+    </SectPreFooter>
   </Layout>
 )
 

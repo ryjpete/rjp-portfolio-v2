@@ -1,50 +1,66 @@
+// import React, { useState } from 'react'
 import React from 'react'
 
+// Import component styles
 import styles from './header.module.less'
+
+// Import components
 import Logo from '../logo/logo'
-import Menu from '../menu/menu'
+// import Menu from '../menu/menu'
+import MenuTrigger from '../menuTrigger/menuTrigger'
 
-const Header = () => (
-  <header className={styles.header}>
-    <Menu />
+const Header = (props) => {
+  // const [state, setState] = useState({
+  //   visible: false,
+  // })
 
-    <div className={styles.headerLogo}>
+  // const handleClick = () => {
+  //   console.log('clicked')
 
-      <div className={styles.logoHolder}>
-        <Logo
-          color='#000000' />
+  //   setState({
+  //     ...state,
+  //     visible: !state.visible,
+  //   })
+  // }
+
+  return (
+    <header className={`${styles.header} ${props.visible ? styles.active : ''}`}>
+
+      {/* <Menu
+        visible={state.visible} /> */}
+
+      <MenuTrigger
+        visible={props.visible}
+        onClick={props.menuTriggerClick} />
+
+      <div className={styles.headerLogo}>
+
+        <div className={styles.logoHolder}>
+          <Logo
+            color='#000000' />
+        </div>
+
+        <div className={`${styles.polygon} ${styles.polygonTop}`}>
+          <svg
+            preserveAspectRatio="none"
+            viewBox="0 0 100 100"
+          >
+            <polygon points="27,0 0,100 100,73 100,0" />
+          </svg>
+        </div>
+
+        <div className={`${styles.polygon} ${styles.polygonBottom}`}>
+          <svg
+            preserveAspectRatio="none"
+            viewBox="0 0 100 100"
+          >
+            <polygon points='42,0 14,100 100,77 100,0' />
+          </svg>
+        </div>
+
       </div>
-
-      <svg
-        className={styles.triangleWhite}
-        width="239"
-        height="161"
-        viewBox="0 0 239 161"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-        d="M78.8382 159.915L168.57 -174.969L413.722 70.1835L78.8382 159.915Z"
-        fill="white"
-        stroke="black" />
-      </svg>
-
-      <svg
-        className={styles.triangleBlack}
-        width="229"
-        height="176"
-        viewBox="0 0 229 176"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M78.8382 174.915L168.57 -159.969L413.722 85.1835L78.8382 174.915Z"
-          fill="rgba(0,0,0,0.7)"
-          stroke="black" />
-      </svg>
-
-    </div>
-  </header>
-)
+    </header>
+  )
+}
 
 export default Header
