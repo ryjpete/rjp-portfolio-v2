@@ -11,6 +11,9 @@ const MenuTrigger = ( props ) => {
     <div
       className={`${styles.hamburger} ${visible ? styles.active : ''}`}
       onClick={() => props.onClick()}
+      onKeyDown={() => props.onClick()}
+      role='button'
+      tabIndex={0}
     >
       <div className={styles.patty}></div>
       <div className={styles.patty}></div>

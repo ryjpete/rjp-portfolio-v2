@@ -1,15 +1,18 @@
 import React from 'react'
 
+// Import component styles
 import styles from './footer.module.less'
+
+// Import components
 import Logo from '../logo/logo'
 
-// Image Imports
+// Import Images
+import imgCodecademy from '../../images/codecademy.png'
+import imgContentful from '../../images/logoContentful.png'
 import imgFigma from '../../images/logoFigma.png'
 import imgGatsby from '../../images/logoGatsby.png'
-import imgContentful from '../../images/logoContentful.png'
-import imgLinkedIn from '../../images/linkedin.png'
 import imgGitHub from '../../images/github.png'
-import imgCodecademy from '../../images/codecademy.png'
+import imgLinkedIn from '../../images/linkedin.png'
 
 const Images = (
   <span className={styles.logos}>

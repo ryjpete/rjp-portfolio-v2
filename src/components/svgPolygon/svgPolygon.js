@@ -1,5 +1,6 @@
 import React from 'react'
 
+// Import component styles
 import styles from './svgPolygon.module.less'
 
 const SvgPolygon = props => {

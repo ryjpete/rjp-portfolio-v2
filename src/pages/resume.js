@@ -1,16 +1,16 @@
 import React from 'react'
 
 // Import components
+// import Button from '../components/button/button'
+import Education from '../components/sectEducation/sectEducation'
 import Layout from '../components/layout/layout'
-import SEO from '../components/seo/seo'
 import PageHeader from '../components/pageHeader/pageHeader'
+import ProExp from '../components/sectProExp/sectProExp'
 import SectIntro from '../components/sectIntro/sectIntro'
 import SectOrange from '../components/sectOrange/sectOrange'
-import TechSkills from '../components/sectTechnicalSkills/sectTechnicalSkills'
-import ProExp from '../components/sectProExp/sectProExp'
-import Education from '../components/sectEducation/sectEducation'
 import SectPreFooter from '../components/sectPreFooter/sectPreFooter'
-import Button from '../components/button/button'
+import SEO from '../components/seo/seo'
+import TechSkills from '../components/sectTechnicalSkills/sectTechnicalSkills'
 
 const Resume = () => (
 
@@ -42,13 +42,13 @@ const Resume = () => (
 
     <Education title='Education' />
     
-    <SectPreFooter title='Professional and Bullet-Pointed'>
-      <p>I get it. No one really wants to read everything I have to say. I don't agree with it, but I understand. So, for those that don't care about anything other than my professional life in bullet points, click the button and head to my online resume. Short and sweet.</p>
+    <SectPreFooter title='Featured junk'>
+      <p>As this site is constantly in development, and as it is replacing an older version, eventually I'm going to get my work up. Hopefully sooner rather than later. Keep checking back though. It's bound to happen.</p>
         
-      <Button
+      {/* <Button
         color='black'
         copy='Resume'
-        href='resume' />
+        href='/' /> */}
     </SectPreFooter>
   </Layout>
 )

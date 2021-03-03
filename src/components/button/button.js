@@ -17,7 +17,8 @@ const Button = ( props ) => {
         borderColor: `${color}`,
         color: `${color}`
       }}
-      to={`/${href}`}
+      to={href}
+      role='button'
     >
       {copy}
 

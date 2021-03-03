@@ -1,13 +1,13 @@
 import React from 'react'
 
 // Import components
+import Button from '../components/button/button'
 import Layout from '../components/layout/layout'
-import SEO from '../components/seo/seo'
 import PageHeader from '../components/pageHeader/pageHeader'
 import SectIntro from '../components/sectIntro/sectIntro'
 import SectPreFooter from '../components/sectPreFooter/sectPreFooter'
 import SectOrange from '../components/sectOrange/sectOrange'
-import Button from '../components/button/button'
+import SEO from '../components/seo/seo'
 
 const IndexPage = () => (
   <Layout>
@@ -40,7 +40,7 @@ const IndexPage = () => (
       <Button
         color='white'
         copy='Learn more'
-        href='about' />
+        href='/about' />
     </SectOrange>
 
     <SectPreFooter title='Professional and Bullet-Pointed'>
@@ -49,7 +49,7 @@ const IndexPage = () => (
       <Button
         color='black'
         copy='Resume'
-        href='resume' />
+        href='/resume' />
     </SectPreFooter>
   </Layout>
 )

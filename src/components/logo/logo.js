@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
+// Import component styles
 import styles from './logo.module.less'
 
 const Logo = ( props ) => {

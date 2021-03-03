@@ -1,13 +1,13 @@
 import React from 'react'
 
 // Import components
+import Button from '../components/button/button'
 import Layout from '../components/layout/layout'
-import SEO from '../components/seo/seo'
 import PageHeader from '../components/pageHeader/pageHeader'
 import SectIntro from '../components/sectIntro/sectIntro'
 import SectOrange from '../components/sectOrange/sectOrange'
 import SectPreFooter from '../components/sectPreFooter/sectPreFooter'
-import Button from '../components/button/button'
+import SEO from '../components/seo/seo'
 
 const About = () => (
   <Layout>
@@ -44,7 +44,7 @@ const About = () => (
       <Button
         color='black'
         copy='Resume'
-        href='resume' />
+        href='/resume' />
     </SectPreFooter>
 
   </Layout>
