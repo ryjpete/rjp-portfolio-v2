@@ -1,37 +1,23 @@
-// import React, { useState } from 'react'
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // Import component styles
 import styles from './header.module.less'
 
 // Import components
 import Logo from '../logo/logo'
-// import Menu from '../menu/menu'
 import MenuTrigger from '../menuTrigger/menuTrigger'
 
-const Header = (props) => {
-  // const [state, setState] = useState({
-  //   visible: false,
-  // })
-
-  // const handleClick = () => {
-  //   console.log('clicked')
-
-  //   setState({
-  //     ...state,
-  //     visible: !state.visible,
-  //   })
-  // }
+const Header = ( props ) => {
+  let visible = props.visible
+  let menuTriggerClick = props.menuTriggerClick
 
   return (
-    <header className={`${styles.header} ${props.visible ? styles.active : ''}`}>
-
-      {/* <Menu
-        visible={state.visible} /> */}
+    <header className={`${styles.header} ${visible ? styles.active : ''}`}>
 
       <MenuTrigger
-        visible={props.visible}
-        onClick={props.menuTriggerClick} />
+        visible={visible}
+        onClick={menuTriggerClick} />
 
       <div className={styles.headerLogo}>
 
@@ -61,6 +47,11 @@ const Header = (props) => {
       </div>
     </header>
   )
+}
+
+Header.propTypes = {
+  visible: PropTypes.bool,
+  menuTriggerClick: PropTypes.func,
 }
 
 export default Header

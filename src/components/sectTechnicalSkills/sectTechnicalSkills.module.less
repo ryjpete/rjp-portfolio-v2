@@ -1,0 +1,103 @@
+@import '../../styles/imports.less';
+
+.techSkills {
+  .bgc(@blue_4);
+  z-index: 4;
+
+  .content {
+    .dis(f);
+    .flexd(c);
+    .flexw(w);
+
+      .rMinW(768px,{
+        .flexd(r);
+      });
+
+    .skill {
+      .ai(fs);
+      .dis(f);
+      .flexd(c);
+      .jc(sb);
+      .m(b,10px);
+      .w(100%);
+
+        .rMinW(576px,{
+          .ai(c);
+          .flexd(r);
+        });      
+        .rMinW(768px,{
+          .w(48%);
+        });
+
+      &:nth-child(odd) {
+        .rMinW(768px,{
+          .m(r,2%);
+        });
+      }
+      &:nth-child(even) {
+        .rMinW(768px,{
+          .m(l,2%);
+        });
+      }
+
+      p {
+        .rMinW(576px,{
+          .w(15rem);
+        });
+      }
+
+      .skillBox {
+        .bgc(@white);
+        .h(25px);
+        .pad(2%,2%,2%,2%);
+        .w(96%);
+
+          .rMinW(576px,{
+            .pad(1%,1%,1%,1%);
+            .w(85%);
+          });
+
+        .skillBoxFill {
+          .bgc(@pink);
+          .h(100%);
+          .pos(r,auto,auto,auto,auto);
+
+          .percentCopy {
+            .fs(1.4rem);
+            .fw(700);
+            .lh(1.8rem);
+            .pos(a,50%,5px,auto,auto);
+            transform: translateY(-50%);
+            .w();
+          }
+        }
+      }
+    }
+  }
+
+
+  // SVG Polygon
+  .polygon {
+    .h(22px);
+    .pos(r,auto,auto,auto,auto);
+    .w(100%);
+    z-index: 0;
+
+      .rMinW(576px,{
+        .h(52px);
+      });
+
+    &.polygon {
+      .pos(a,100%,0,auto,auto);
+
+      svg {
+        .h(inherit);
+        .w(inherit);
+
+        polygon {
+          fill: @blue_4;
+        }
+      }
+    }
+  }
+}

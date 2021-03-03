@@ -1,10 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
 // Import component styles
 import styles from './button.module.less'
 
-const Button = props => {
+const Button = ( props ) => {
   const color = props.color
   const copy = props.copy
   const href = props.href
@@ -35,6 +36,12 @@ const Button = props => {
       </svg>
     </Link>
   )
+}
+
+Button.propTypes = {
+  color: PropTypes.string,
+  copy: PropTypes.string,
+  href: PropTypes.string,
 }
 
 Button.defaultProps = {

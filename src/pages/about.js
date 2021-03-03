@@ -1,9 +1,4 @@
 import React from 'react'
-// import { useStaticQuery, graphql } from 'gatsby'
-// import Img from 'gatsby-image'
-
-// Import component styles
-// import styles from './about.module.less'
 
 // Import components
 import Layout from '../components/layout/layout'
@@ -13,55 +8,6 @@ import SectIntro from '../components/sectIntro/sectIntro'
 import SectOrange from '../components/sectOrange/sectOrange'
 import SectPreFooter from '../components/sectPreFooter/sectPreFooter'
 import Button from '../components/button/button'
-
-// const Image = () => {
-//   const data = useStaticQuery(graphql`
-//     query {
-//       placeholderImage: file(relativePath: { eq: "rjp.jpg" }) {
-//         childImageSharp {
-//           fluid(maxWidth: 1140) {
-//             ...GatsbyImageSharpFluid
-//           }
-//         }
-//       }
-//     }
-//   `)
-
-//   if (!data?.placeholderImage?.childImageSharp?.fluid) {
-//     return <div>Picture not found</div>
-//   }
-
-//   return (
-//     <div className={styles.imgContain}>
-      
-//       <div className={`${styles.polygon} ${styles.polygonTop}`}>
-//         <svg
-//           preserveAspectRatio="none"
-//           viewBox="0 0 100 100"
-//         >
-//           <polygon
-//             points="0,0 0,100 100,100"
-//             opacity="1" />
-//         </svg>
-//       </div>
-
-//       <Img
-//         className={styles.imgRjp}
-//         fluid={data.placeholderImage.childImageSharp.fluid} />
-      
-//       <div className={`${styles.polygon} ${styles.polygonBottom}`}>
-//         <svg
-//           preserveAspectRatio="none"
-//           viewBox="0 0 100 100"
-//         >
-//           <polygon
-//             points="0,0 10,100 100,0"
-//             opacity="1" />
-//         </svg>
-//       </div>
-//     </div>
-//   )
-// }
 
 const About = () => (
   <Layout>
