@@ -5,63 +5,59 @@ import PropTypes from 'prop-types'
 import styles from './sectIntro.module.less'
 
 // Top SVG polygon
-const Top = ( props ) => {
-  let bgColor = props.bgColor
-
-  return (
-    <div className={`${styles.polygon} ${styles.polygonTop}`}>
-      <svg
-        preserveAspectRatio="none"
-        viewBox="0 0 100 100"
-      >
-        <polygon
-          points="100,100 100,0 0,100"
-          opacity="1"
-          fill={bgColor} />
-      </svg>
-    </div>
-  )
-}
+const Top = props => (
+  <div className={`${styles.polygon} ${styles.polygonTop}`}>
+    <svg
+      preserveAspectRatio="none"
+      viewBox="0 0 100 100"
+    >
+      <polygon
+        points="100,100 100,0 0,100"
+        opacity="1"
+        fill={props.bgColor} />
+    </svg>
+  </div>
+)
 
 // Bottom SVG polygon
-const Bottom = ( props ) => {
-  let bgColor = props.bgColor
-  
-  return (
-    <div className={`${styles.polygon} ${styles.polygonBottom}`}>
-      <svg
-        preserveAspectRatio="none"
-        viewBox="0 0 100 100"
-      >
-        <polygon
-          points="100,100 100,0 0,0"
-          opacity="1"
-          fill={bgColor} />
-      </svg>
+const Bottom = props => (
+  <div className={`${styles.polygon} ${styles.polygonBottom}`}>
+    <svg
+      preserveAspectRatio="none"
+      viewBox="0 0 100 100"
+    >
+      <polygon
+        points="100,100 100,0 0,0"
+        opacity="1"
+        fill={props.bgColor} />
+    </svg>
+  </div>
+)
+
+const SectIntro = props => (
+  <section className={styles.intro}>
+
+    {/* If Top SVG is true, then show */}
+    {props.top
+      ? <Top bgColor={props.bgColor} />
+      : ''
+    }
+
+    <div className={styles.content}>
+      {props.title
+        ? <h2>{props.title}</h2>
+        : ''
+      }
+      {props.children}
     </div>
-  )
-}
 
-const SectIntro = ( props ) => {
-  let bgColor = props.bgColor
-  let top = props.top
-  let bottom = props.bottom
-
-  return (
-    <section className={styles.intro}>
-
-      {/* If Top SVG is true, then show */}
-      {top ? <Top bgColor={bgColor} /> : ''}
-
-      <div className={styles.content}>
-        {props.children}
-      </div>
-
-      {/* If Bottom SVG is true, then show */}
-      {bottom ? <Bottom bgColor={bgColor} /> : ''}
-    </section>
-  )
-}
+    {/* If Bottom SVG is true, then show */}
+    {props.bottom
+      ? <Bottom bgColor={props.bgColor} />
+      : ''
+    }
+  </section>
+)
 
 SectIntro.propTypes = {
   bgColor: PropTypes.string,

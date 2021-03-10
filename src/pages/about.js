@@ -21,6 +21,15 @@ const options = {
 const About = ({ data }) => {
 
   const { pageTitle } = data.contentfulPage
+  const { introSectionContent } = data.contentfulSectionIntro
+  const introSectionShowTitle = data.contentfulSectionIntro.introSectionShowTitle
+  const introSectionTitle = data.contentfulSectionIntro.introSectionTitle
+  const { orangeSectionContent } = data.contentfulSectionOrange
+  const orangeSectionTitle = data.contentfulSectionOrange.orangeSectionTitle
+  const orangeSectionShowTitle = data.contentfulSectionOrange.orangeSectionShowTitle
+  const { preFooterSectionContent } = data.contentfulSectionPreFooter
+  const preFooterSectionTitle = data.contentfulSectionPreFooter.preFooterSectionTitle
+  const preFooterSectionShowTitle = data.contentfulSectionPreFooter.preFooterSectionShowTitle
 
   return (
     <Layout>
@@ -30,34 +39,33 @@ const About = ({ data }) => {
         {pageTitle && renderRichText(pageTitle, options)}
       </PageHeader>
 
-      <SectIntro
-        bgColor='#000000'
-        top={true}
-        bottom={true}
-      >
-        <p>You know, I've lived with myself for 40 years now. You'd think it'd be easier to write content for an about page.</p>
-      </SectIntro>
+      {introSectionContent ?
+        <SectIntro
+          bgColor='#000000'
+          top={true}
+          bottom={true}
+          title={introSectionShowTitle ? introSectionTitle : ''}
+        >
+          {renderRichText(introSectionContent, options)}
+        </SectIntro>
+      : ''}
       
-      <SectOrange title='A Look into RJP'>
-        <p>
-          How to wrap all those years into a few paragraphs? Here we go...
-          <br /><br />
-          Creative: Writing the ABC's in marker around your entire torso.
-          <br /><br />
-          Inquisitive: Digging up your brother's dead lizard to "see what it was up to" ... I'm not saying my brother was happy about it. 35 years later it's still brought up with a laugh and a shake of the head. My bad.
-          <br /><br />
-          So that about wraps it up: Markers, dead lizards. Sprinkle in a guitar, a few White Russians, and VS Code, and there you have it.
-        </p>
-      </SectOrange>
+      {orangeSectionContent ?
+        <SectOrange title={orangeSectionShowTitle ? orangeSectionTitle : ''}>
+          {renderRichText(orangeSectionContent, options)}
+        </SectOrange>
+      : ''}
       
-      <SectPreFooter title='Professional and Bullet-Pointed'>
-        <p>I get it. No one really wants to read everything I have to say. I don't agree with it, but I understand. So, for those that don't care about anything other than my professional life in bullet points, click the button and head to my online resume. Short and sweet.</p>
-          
-        <Button
-          color='black'
-          copy='Resume'
-          href='/resume' />
-      </SectPreFooter>
+      {preFooterSectionContent ?
+        <SectPreFooter title={preFooterSectionShowTitle ? preFooterSectionTitle : ''}>
+          {renderRichText(preFooterSectionContent, options)}
+            
+          <Button
+            color='black'
+            copy='Resume'
+            href='/resume' />
+        </SectPreFooter>
+      : ''}
 
     </Layout>
   )
@@ -71,6 +79,29 @@ export const pageQuery = graphql`
       contentful_id
       pageName
       pageTitle {
+        raw
+      }
+    }
+    contentfulSectionIntro(page: {elemMatch: {contentful_id: {eq: "1Wr7aJTiHAwpAQnupeDcMG"}}}) {
+      id
+      introSectionShowTitle
+      introSectionTitle
+      introSectionContent {
+        raw
+      }
+    }
+    contentfulSectionOrange(page: {elemMatch: {contentful_id: {eq: "1Wr7aJTiHAwpAQnupeDcMG"}}}) {
+      id
+      orangeSectionTitle
+      orangeSectionShowTitle
+      orangeSectionContent {
+        raw
+      }
+    }
+    contentfulSectionPreFooter(page: {elemMatch: {contentful_id: {eq: "1Wr7aJTiHAwpAQnupeDcMG"}}}) {
+      preFooterSectionTitle
+      preFooterSectionShowTitle
+      preFooterSectionContent {
         raw
       }
     }

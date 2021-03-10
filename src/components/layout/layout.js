@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
   })
 
   const handleMenuClick = () => {
-    console.log('handleMenuClick')
+    // console.log('handleMenuClick')
 
     setState({
       ...state,

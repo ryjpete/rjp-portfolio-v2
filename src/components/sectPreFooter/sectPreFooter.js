@@ -5,49 +5,40 @@ import PropTypes from 'prop-types'
 import styles from './sectPreFooter.module.less'
 
 // Bottom SVG polygon
-const Bottom = ( props ) => {
-  let points = props.points
-
-  return (
-    <div className={`${styles.polygon} ${styles.polygonBottom}`}>
-      <svg
-        preserveAspectRatio="none"
-        viewBox="0 0 100 100"
-      >
-        <polygon
-          points={points}
-          opacity="1" />
-      </svg>
-    </div>
-  )
-}
+const Bottom = props => (
+  <div className={`${styles.polygon} ${styles.polygonBottom}`}>
+    <svg
+      preserveAspectRatio="none"
+      viewBox="0 0 100 100"
+    >
+      <polygon
+        points={props.points}
+        opacity="1" />
+    </svg>
+  </div>
+)
 
 Bottom.propTypes = {
   points: PropTypes.string.isRequired,
 }
 
-const SectPreFooter = ( props ) => {
-  let title = props.title
-  let children = props.children
+const SectPreFooter = props => (
+  <section className={styles.preFooter}>
 
-  return (
-    <section className={styles.preFooter}>
+    <div className={styles.content}>
+      <div className={styles.col}>
+        <h3>{ props.title}</h3>
+      </div>
 
-      <div className={styles.content}>
-        <div className={styles.col}>
-          <h3>{title}</h3>
-        </div>
+      <div className={styles.col}>
+        {props.children}
+      </div>
+    </div>      
 
-        <div className={styles.col}>
-          {children}
-        </div>
-      </div>      
+    <Bottom points='65,100 100,0 0,0' />
 
-      <Bottom points='65,100 100,0 0,0' />
-
-    </section>
-  )
-}
+  </section>
+)
 
 SectPreFooter.propTypes = {
   title: PropTypes.string,

@@ -23,7 +23,15 @@ const options = {
 const IndexPage = ({ data }) => {
 
   const { pageTitle } = data.contentfulPage
-  // console.log(pageTitle)
+  const { introSectionContent } = data.contentfulSectionIntro
+  const introSectionShowTitle = data.contentfulSectionIntro.introSectionShowTitle
+  const introSectionTitle = data.contentfulSectionIntro.introSectionTitle
+  const { orangeSectionContent } = data.contentfulSectionOrange
+  const orangeSectionTitle = data.contentfulSectionOrange.orangeSectionTitle
+  const orangeSectionShowTitle = data.contentfulSectionOrange.orangeSectionShowTitle
+  const { preFooterSectionContent } = data.contentfulSectionPreFooter
+  const preFooterSectionTitle = data.contentfulSectionPreFooter.preFooterSectionTitle
+  const preFooterSectionShowTitle = data.contentfulSectionPreFooter.preFooterSectionShowTitle
   
   return (
     <Layout>
@@ -33,51 +41,73 @@ const IndexPage = ({ data }) => {
         {pageTitle && renderRichText(pageTitle, options)}
       </PageHeader>
 
-      <SectIntro
-        bgColor='#000000'
-        top={true}
-        bottom={true}
-      >
-        <p>I'm a creative person. Always have been. Drawing, writing, building, strumming, designing, developing... It's all driven by creativity.</p>
-      </SectIntro>
+      {introSectionContent ?
+        <SectIntro
+          bgColor='#000000'
+          top={true}
+          bottom={true}
+          title={introSectionShowTitle ? introSectionTitle : ''}
+        >
+          {renderRichText(introSectionContent, options)}
+        </SectIntro>
+      : ''}
 
-      
-      <SectOrange title='Always Evolving'>
-        <p>
-          A new dish to taste. As of yet unseen sights to gaze upon. State-of-the-art technologies to study and test out.
-          <br /><br />
-          Things are always changing, and as an inquisitive human being, I enjoy the journey of trying new things and evolving into an upgraded version of myself.
-          <br /><br />
-          It's all about that next adventure.
-        </p>
+      {orangeSectionContent ?
+        <SectOrange title={orangeSectionShowTitle ? orangeSectionTitle : ''}>
+          {renderRichText(orangeSectionContent, options)}
 
-        <Button
-          color='white'
-          copy='Learn more'
-          href='/about' />
-      </SectOrange>
+          <Button
+            color='white'
+            copy='Learn more'
+            href='/about' />
+        </SectOrange>
+      : ''}
 
-      <SectPreFooter title='Professional and Bullet-Pointed'>
-        <p>I get it. No one really wants to read everything I have to say. I don't agree with it, but I understand. So, for those that don't care about anything other than my professional life in bullet points, click the button and head to my online resume. Short and sweet.</p>
-          
-        <Button
-          color='black'
-          copy='Resume'
-          href='/resume' />
-      </SectPreFooter>
+      {preFooterSectionContent ?
+        <SectPreFooter title={preFooterSectionShowTitle ? preFooterSectionTitle : ''}>
+          {renderRichText(preFooterSectionContent, options)}
+            
+          <Button
+            color='black'
+            copy='Resume'
+            href='/resume' />
+        </SectPreFooter>
+      : ''}
     </Layout>
   )
 
 }
 export default IndexPage
 
-// GraphQL query
 export const pageQuery = graphql`
   {
     contentfulPage(contentful_id: {eq: "6t9h0XvEXg6lAInvPn0TiG"}) {
       contentful_id
       pageName
       pageTitle {
+        raw
+      }
+    }
+    contentfulSectionIntro(page: {elemMatch: {contentful_id: {eq: "6t9h0XvEXg6lAInvPn0TiG"}}}) {
+      id
+      introSectionShowTitle
+      introSectionTitle
+      introSectionContent {
+        raw
+      }
+    }
+    contentfulSectionOrange(page: {elemMatch: {contentful_id: {eq: "6t9h0XvEXg6lAInvPn0TiG"}}}) {
+      id
+      orangeSectionTitle
+      orangeSectionShowTitle
+      orangeSectionContent {
+        raw
+      }
+    }
+    contentfulSectionPreFooter(page: {elemMatch: {contentful_id: {eq: "6t9h0XvEXg6lAInvPn0TiG"}}}) {
+      preFooterSectionTitle
+      preFooterSectionShowTitle
+      preFooterSectionContent {
         raw
       }
     }

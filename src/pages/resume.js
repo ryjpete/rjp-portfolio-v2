@@ -20,44 +20,84 @@ const options = {
   renderText: text => text.split('\n').flatMap((text, i) => [i > 0 && <br key={i} />, text])
 }
 
-const Resume = ({ data }) => {
+const Resume = ({ data }) => (
+  <Layout>
+    <SEO title='Ryan J Peterson, Front End Developer' />
 
-  const { pageTitle } = data.contentfulPage
+    <PageHeader>
+      {data.contentfulPage.pageTitle && renderRichText(data.contentfulPage.pageTitle, options)}
+    </PageHeader>
 
-  return (
-    <Layout>
-      <SEO
-        title='Ryan J Peterson, Front End Developer' />
+    {data.contentfulPage.pageReferences.map(section => {
 
-      <PageHeader>
-        {pageTitle && renderRichText(pageTitle, options)}
-      </PageHeader>    
+      switch (section.__typename) {
+        case 'ContentfulSectionIntro':
+          return (
+            <SectIntro
+              key={section.contentful_id}
+              bgColor='#000000'
+              top={true}
+              bottom={true}
+              title={section.introSectionShowTitle ? section.introSectionTitle : ''}
+            >
+              {renderRichText(section.introSectionContent, options)}
+            </SectIntro>
+          )
+          break
 
-      <SectIntro
-        bgColor='#000000'
-        top={true}
-        bottom={true}
-      >
-        <h2>Ryan J Peterson</h2>
-        <h4>CHICAGO IL USA</h4>
-      </SectIntro>
+        case 'ContentfulSectionOrange':
+          return (
+            <SectOrange
+              key={section.contentful_id}
+              title={section.orangeSectionShowTitle ? section.orangeSectionTitle : ''}
+            >
+              {renderRichText(section.orangeSectionContent, options)}
+            </SectOrange>
+          )
+          break
+        
+        case 'ContentfulSectionTechnicalSkills':
+          return (
+            <TechSkills
+              key={section.contentful_id}
+              title={section.technicalSkillsSectionTitle}
+              skills={section.skills} />
+          )
+          break
 
-      <SectOrange title='Front End Dev'>
-        <p>A front end developer with 15+ years of experience designing, developing, and implementing web applications through logical, clean code. Provides years of expertise in responsive design and development across browsers and devices. Possesses the ability to understand client expectations and requirements while collaborating with them on a personal level. Vast experience within design realm, coupled with expertise in development creates a unique eye for continuity and best practices throughout projects. In-depth maintenance of code as well as testing thoroughly throughout. Leader among team collaborations.</p>
-      </SectOrange>
+        case 'ContentfulSectionProfessionalExperience':
+          return (
+            <ProExp
+              key={section.contentful_id}
+              title={section.professionalExperienceSectionTitle}
+              employment={section.employment} />
+          )
+          break
 
-      <TechSkills title='Technical Skills' />
+        case 'ContentfulSectionEducationalExperience':
+          return(
+            <Education
+              key={section.contentful_id}
+              title={section.educationalExperienceSectionTitle}
+              schooling={section.schooling} />
+          )
+          break
 
-      <ProExp title='Professional Experience' />
-
-      <Education title='Education' />
+        case 'ContentfulSectionPreFooter':
+          return (
+            <SectPreFooter
+              key={section.contentful_id}
+              title={section.preFooterSectionShowTitle ? section.preFooterSectionTitle : ''}
+            >
+              {renderRichText(section.preFooterSectionContent, options)}
+            </SectPreFooter>
+          )
+          break
+      }
       
-      <SectPreFooter title='Featured junk'>
-        <p>As this site is constantly in development, and as it is replacing an older version, eventually I'm going to get my work up. Hopefully sooner rather than later. Keep checking back though. It's bound to happen.</p>
-      </SectPreFooter>
-    </Layout>
-  )
-}
+    })}
+  </Layout>
+)
 export default Resume
 
 // GraphQL query
@@ -68,6 +108,83 @@ export const pageQuery = graphql`
       pageName
       pageTitle {
         raw
+      }
+      pageReferences {
+        ... on ContentfulSectionIntro {
+          contentful_id
+          introSectionShowTitle
+          introSectionTitle
+          introSectionContent {
+            raw
+          }
+        }
+        ... on ContentfulSectionOrange {
+          contentful_id
+          orangeSectionShowTitle
+          orangeSectionTitle
+          orangeSectionContent {
+            raw
+          }
+        }
+        ... on ContentfulSectionTechnicalSkills {
+          contentful_id
+          technicalSkillsSectionTitle
+          skills {
+            contentful_id
+            skill
+            skillLevel
+          }
+        }
+        ... on ContentfulSectionProfessionalExperience {
+          contentful_id
+          professionalExperienceSectionTitle
+          employment {
+            contentful_id
+            employerTitle
+            employerPosition {
+              contentful_id
+              endDate(formatString: "YYYY MMM")
+              startDate(formatString: "YYYY MMM")
+              title
+              bullets {
+                ... on ContentfulPositionBullet {
+                  contentful_id
+                  bulletPoint {
+                    raw
+                  }
+                }
+              }
+              technicalSkills {
+                contentful_id
+                skill
+              }
+            }
+          }
+        }
+        ... on ContentfulSectionPreFooter {
+          contentful_id
+          preFooterSectionShowTitle
+          preFooterSectionTitle
+          preFooterSectionContent {
+            raw
+          }
+        }
+        ... on ContentfulSectionEducationalExperience {
+          contentful_id
+          educationalExperienceSectionTitle
+          schooling {
+            contentful_id
+            educationSchoolTitle
+            subTitle
+            endDate(formatString: "YYYY MMM")
+            startDate(formatString: "YYYY MMM")
+            bullets {
+              bulletPoint {
+                raw
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -1,56 +1,61 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// Import the new rendering and the render node definitions
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
+
 // Import component styles
 import styles from './sectEducation.module.less'
 
-const Education = ( props ) => {
-  let title = props.title
+// Setting the rendering options
+const options = {
+  renderText: text => text.split('\n').flatMap((text, i) => [i > 0 && <br key={i} />, text])
+}
 
-  const education = [
-    {
-      institution: 'Purdue University - West Lafayette',
-      positions: [
-        {
-          major: 'Computer Graphics Technology',
-          startMonth: 'Aug',
-          startYear: '1999',
-          endMonth: 'May',
-          endYear: '2004',
-          points: [
-            { bullet: `Bachelor of Science` },
-            { bullet: `Interactive Multimedia and Design specialty` },
-          ],
-        },
-      ],
-    },
-  ]
+const Education = ( props ) => {
+
+  // const education = [
+  //   {
+  //     institution: 'Purdue University - West Lafayette',
+  //     positions: [
+  //       {
+  //         major: 'Computer Graphics Technology',
+  //         startMonth: 'Aug',
+  //         startYear: '1999',
+  //         endMonth: 'May',
+  //         endYear: '2004',
+  //         points: [
+  //           { bullet: `Bachelor of Science` },
+  //           { bullet: `Interactive Multimedia and Design specialty` },
+  //         ],
+  //       },
+  //     ],
+  //   },
+  // ]
 
   return (
     <section className={styles.education}>
-      <h2>{title}</h2>
+      <h2>{props.title}</h2>
 
       <div className={styles.content}>
 
-        {education.map((item, i) => (
-          <div
-            key={i}
-            className={styles.item}>
+        {props.schooling.map(school => {
+          return (
+            <div
+              key={school.contentful_id}
+              className={styles.item}
+            >
+              <h3>{school.educationSchoolTitle}</h3>
 
-            <h3>{item.institution}</h3>
+              <div className={styles.position}>
+                <h4>{school.subTitle}</h4>
 
-            {item.positions.map((position, i) => (
-              <div
-                key={i}
-                className={styles.position}>
-
-                <h4>{position.major}</h4>
                 <div className={styles.positionContent}>
                   <div className={styles.col}>
                     <p className={styles.dates}>
                       <span className={styles.endDate}>
-                        {position.endYear} {position.endMonth}<br />
-                      </span>                      
+                        {school.endDate}
+                      </span>
                       <svg
                         width="59"
                         height="59"
@@ -65,10 +70,45 @@ const Education = ( props ) => {
                           fill='rgba(255,255,255,0.65)' />
                       </svg>
                       <span className={styles.startDate}>
-                        {position.startYear} {position.startMonth}
+                        {school.startDate}
                       </span>
                     </p>
                   </div>
+
+                  <div className={styles.col}>
+                    <ul className={styles.positionPoints}>
+                      
+                      {school.bullets.map((bullet, i) => {
+                        return (
+                          <li key={i}>
+                            {renderRichText(bullet.bulletPoint, options)}
+                          </li>
+                        )
+                      })}
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+        })}
+
+        {/* {education.map((item, i) => (
+          <div
+            key={i}
+            className={styles.item}>
+
+            <h3>{item.institution}</h3>
+
+            {item.positions.map((position, i) => (
+              <div
+                key={i}
+                className={styles.position}>
+
+                <h4>{position.major}</h4>
+                <div className={styles.positionContent}>
+                  
 
                   <div className={styles.col}>
                     <ul className={styles.positionPoints}>
@@ -82,7 +122,7 @@ const Education = ( props ) => {
             ))}
 
           </div>
-        ))}
+        ))} */}
 
       </div>
     </section>
