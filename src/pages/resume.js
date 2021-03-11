@@ -29,10 +29,11 @@ const Resume = ({ data }) => (
     </PageHeader>
 
     {data.contentfulPage.pageReferences.map(section => {
+      let sectResume
 
       switch (section.__typename) {
         case 'ContentfulSectionIntro':
-          return (
+          sectResume = (
             <SectIntro
               key={section.contentful_id}
               bgColor='#000000'
@@ -46,7 +47,7 @@ const Resume = ({ data }) => (
           break
 
         case 'ContentfulSectionOrange':
-          return (
+          sectResume = (
             <SectOrange
               key={section.contentful_id}
               title={section.orangeSectionShowTitle ? section.orangeSectionTitle : ''}
@@ -55,9 +56,9 @@ const Resume = ({ data }) => (
             </SectOrange>
           )
           break
-        
+
         case 'ContentfulSectionTechnicalSkills':
-          return (
+          sectResume = (
             <TechSkills
               key={section.contentful_id}
               title={section.technicalSkillsSectionTitle}
@@ -66,7 +67,7 @@ const Resume = ({ data }) => (
           break
 
         case 'ContentfulSectionProfessionalExperience':
-          return (
+          sectResume = (
             <ProExp
               key={section.contentful_id}
               title={section.professionalExperienceSectionTitle}
@@ -75,7 +76,7 @@ const Resume = ({ data }) => (
           break
 
         case 'ContentfulSectionEducationalExperience':
-          return(
+          sectResume = (
             <Education
               key={section.contentful_id}
               title={section.educationalExperienceSectionTitle}
@@ -84,7 +85,7 @@ const Resume = ({ data }) => (
           break
 
         case 'ContentfulSectionPreFooter':
-          return (
+          sectResume = (
             <SectPreFooter
               key={section.contentful_id}
               title={section.preFooterSectionShowTitle ? section.preFooterSectionTitle : ''}
@@ -93,7 +94,12 @@ const Resume = ({ data }) => (
             </SectPreFooter>
           )
           break
+
+        default:
+          return false
       }
+
+      return sectResume
       
     })}
   </Layout>

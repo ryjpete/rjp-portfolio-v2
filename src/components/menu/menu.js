@@ -12,17 +12,26 @@ const Menu = ( props ) => {
     <div className={`${styles.menu} ${visible ? styles.open : ''}`}>
       <ul className={styles.links}>
         <li>
-          <Link to='/' >
+          <Link
+            to='/'
+            activeClassName={styles.active}
+          >
             Home
           </Link>
         </li>
         <li>
-          <Link to='/about'>
+          <Link
+            to='/about'
+            activeClassName={styles.active}
+          >
             About
           </Link>
         </li>
         <li>
-          <Link to='/resume'>
+          <Link
+            to='/resume'
+            activeClassName={styles.active}
+          >
             Resume
           </Link>
         </li>
