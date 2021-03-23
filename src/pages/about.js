@@ -6,70 +6,117 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text'
 
 // Import components
 import Button from '../components/button/button'
+import Education from '../components/sectEducation/sectEducation'
 import Layout from '../components/layout/layout'
 import PageHeader from '../components/pageHeader/pageHeader'
+import ProExp from '../components/sectProExp/sectProExp'
 import SectIntro from '../components/sectIntro/sectIntro'
 import SectOrange from '../components/sectOrange/sectOrange'
 import SectPreFooter from '../components/sectPreFooter/sectPreFooter'
 import SEO from '../components/seo/seo'
+import TechSkills from '../components/sectTechnicalSkills/sectTechnicalSkills'
 
 // Setting the rendering options
 const options = {
   renderText: text => text.split('\n').flatMap((text, i) => [i > 0 && <br key={i} />, text])
 }
 
-const About = ({ data }) => {
+// Main component
+const About = ({ data }) => (
+  <Layout>
+    <SEO title='Ryan J Peterson' />
 
-  const { pageTitle } = data.contentfulPage
-  const { introSectionContent } = data.contentfulSectionIntro
-  const introSectionShowTitle = data.contentfulSectionIntro.introSectionShowTitle
-  const introSectionTitle = data.contentfulSectionIntro.introSectionTitle
-  const { orangeSectionContent } = data.contentfulSectionOrange
-  const orangeSectionTitle = data.contentfulSectionOrange.orangeSectionTitle
-  const orangeSectionShowTitle = data.contentfulSectionOrange.orangeSectionShowTitle
-  const { preFooterSectionContent } = data.contentfulSectionPreFooter
-  const preFooterSectionTitle = data.contentfulSectionPreFooter.preFooterSectionTitle
-  const preFooterSectionShowTitle = data.contentfulSectionPreFooter.preFooterSectionShowTitle
+    <PageHeader>
+      {data.contentfulPage.pageTitle && renderRichText(data.contentfulPage.pageTitle, options)}
+    </PageHeader>
 
-  return (
-    <Layout>
-      <SEO title='Ryan J Peterson' />
+    {data.contentfulPage.pageReferences.map(section => {
+      let sectResume
 
-      <PageHeader>
-        {pageTitle && renderRichText(pageTitle, options)}
-      </PageHeader>
+      switch (section.__typename) {
+        case 'ContentfulSectionIntro':
+          sectResume = (
+            <SectIntro
+              key={section.contentful_id}
+              bgColor='#000000'
+              top={true}
+              bottom={true}
+              title={section.introSectionShowTitle ? section.introSectionTitle : ''}
+            >
+              {renderRichText(section.introSectionContent, options)}
+            </SectIntro>
+          )
+          break
 
-      {introSectionContent ?
-        <SectIntro
-          bgColor='#000000'
-          top={true}
-          bottom={true}
-          title={introSectionShowTitle ? introSectionTitle : ''}
-        >
-          {renderRichText(introSectionContent, options)}
-        </SectIntro>
-      : ''}
+        case 'ContentfulSectionOrange':
+          sectResume = (
+            <SectOrange
+              key={section.contentful_id}
+              title={section.orangeSectionShowTitle ? section.orangeSectionTitle : ''}
+            >
+              {renderRichText(section.orangeSectionContent, options)}
+
+              <Button
+                color='white'
+                copy='Learn more'
+                href='/about' />
+            </SectOrange>
+          )
+          break
+
+        case 'ContentfulSectionTechnicalSkills':
+          sectResume = (
+            <TechSkills
+              key={section.contentful_id}
+              title={section.technicalSkillsSectionTitle}
+              skills={section.skills} />
+          )
+          break
+
+        case 'ContentfulSectionProfessionalExperience':
+          sectResume = (
+            <ProExp
+              key={section.contentful_id}
+              title={section.professionalExperienceSectionTitle}
+              employment={section.employment} />
+          )
+          break
+
+        case 'ContentfulSectionEducationalExperience':
+          sectResume = (
+            <Education
+              key={section.contentful_id}
+              title={section.educationalExperienceSectionTitle}
+              schooling={section.schooling} />
+          )
+          break
+
+        case 'ContentfulSectionPreFooter':
+          sectResume = (
+            <SectPreFooter
+              key={section.contentful_id}
+              title={section.preFooterSectionShowTitle ? section.preFooterSectionTitle : ''}
+            >
+              {renderRichText(section.preFooterSectionContent, options)}
+          
+              <Button
+                color='black'
+                copy='Resume'
+                href='/resume' />
+            </SectPreFooter>
+          )
+          break
+
+        default:
+          return false
+      }
+
+      return sectResume
       
-      {orangeSectionContent ?
-        <SectOrange title={orangeSectionShowTitle ? orangeSectionTitle : ''}>
-          {renderRichText(orangeSectionContent, options)}
-        </SectOrange>
-      : ''}
-      
-      {preFooterSectionContent ?
-        <SectPreFooter title={preFooterSectionShowTitle ? preFooterSectionTitle : ''}>
-          {renderRichText(preFooterSectionContent, options)}
-            
-          <Button
-            color='black'
-            copy='Resume'
-            href='/resume' />
-        </SectPreFooter>
-      : ''}
+    })}
+  </Layout>
+)
 
-    </Layout>
-  )
-}
 export default About
 
 // GraphQL query
@@ -81,28 +128,31 @@ export const pageQuery = graphql`
       pageTitle {
         raw
       }
-    }
-    contentfulSectionIntro(page: {elemMatch: {contentful_id: {eq: "1Wr7aJTiHAwpAQnupeDcMG"}}}) {
-      id
-      introSectionShowTitle
-      introSectionTitle
-      introSectionContent {
-        raw
-      }
-    }
-    contentfulSectionOrange(page: {elemMatch: {contentful_id: {eq: "1Wr7aJTiHAwpAQnupeDcMG"}}}) {
-      id
-      orangeSectionTitle
-      orangeSectionShowTitle
-      orangeSectionContent {
-        raw
-      }
-    }
-    contentfulSectionPreFooter(page: {elemMatch: {contentful_id: {eq: "1Wr7aJTiHAwpAQnupeDcMG"}}}) {
-      preFooterSectionTitle
-      preFooterSectionShowTitle
-      preFooterSectionContent {
-        raw
+      pageReferences {
+        ... on ContentfulSectionIntro {
+          contentful_id
+          introSectionShowTitle
+          introSectionTitle
+          introSectionContent {
+            raw
+          }
+        }
+        ... on ContentfulSectionOrange {
+          contentful_id
+          orangeSectionShowTitle
+          orangeSectionTitle
+          orangeSectionContent {
+            raw
+          }
+        }
+        ... on ContentfulSectionPreFooter {
+          contentful_id
+          preFooterSectionShowTitle
+          preFooterSectionTitle
+          preFooterSectionContent {
+            raw
+          }
+        }
       }
     }
   }

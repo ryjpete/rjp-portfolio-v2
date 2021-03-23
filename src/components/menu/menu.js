@@ -5,40 +5,55 @@ import { Link } from 'gatsby'
 // Import component styles
 import styles from './menu.module.less'
 
-const Menu = ( props ) => {
-  let visible = props.visible
+// Import components
+// import Logo from '../logo/logo'
+// import Copyright from '../copyright/copyright'
+// import SocialIcons from '../socialIcons/socialIcons'
 
-  return (
-    <div className={`${styles.menu} ${visible ? styles.open : ''}`}>
-      <ul className={styles.links}>
-        <li>
-          <Link
-            to='/'
-            activeClassName={styles.active}
-          >
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            to='/about'
-            activeClassName={styles.active}
-          >
-            About
-          </Link>
-        </li>
-        <li>
-          <Link
-            to='/resume'
-            activeClassName={styles.active}
-          >
-            Resume
-          </Link>
-        </li>
-      </ul>
-    </div>
-  )
-}
+const Menu = ( props ) => (
+  <div className={`${styles.menu} ${props.visible ? styles.open : ''}`}>
+    <ul className={styles.links}>
+      <li>
+        <Link
+          to='/'
+          activeClassName={styles.active}
+        >
+          Home
+        </Link>
+      </li>
+      <li>
+        <Link
+          to='/about'
+          activeClassName={styles.active}
+        >
+          About
+        </Link>
+      </li>
+      <li>
+        <Link
+          to='/resume'
+          activeClassName={styles.active}
+        >
+          Resume
+        </Link>
+      </li>
+    </ul>
+
+    {/* <div className={styles.footer}>
+      <Logo
+        color='#FFFFFF'
+        addClass='menu' />
+
+      <SocialIcons
+        addClass='menu' />
+
+      <Copyright
+        color='#FFFFFF'
+        addClass='menu' />
+      
+    </div> */}
+  </div>
+)
 
 Menu.propTypes = {
   visible: PropTypes.bool,

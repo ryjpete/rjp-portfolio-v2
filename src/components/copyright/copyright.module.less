@@ -1,0 +1,66 @@
+@import '../../styles/imports.less';
+
+.logos {
+  .dis(f);
+  .m(t,1rem);
+
+  a {
+    .dis(f);
+    .jc(c);
+    .m(r,4px);
+    .m(l,4px);
+    // .w(30px);
+
+      .rMinW(992px,{
+        .m(r,8px);
+        .m(l,0);
+        .w();
+      });
+
+    img {
+      .dis(b);
+    }
+  }
+}
+
+.copyright {
+  .ai(c);
+  .dis(f);
+  .flexd(c);
+  .m(t,5.5rem);
+
+    .rMinW(992px, {
+      .ai(fs);
+      .flexd(r);
+    });
+
+  p {
+    .ai(c);
+    color: @copyFooter;
+    .dis(f);
+    .flexd(c);
+    .fs(1.4rem);
+    .lh(1.8rem);
+    .m(l,10px);
+
+      .rMinW(992px, {
+        .ai(fs);
+      });
+  }
+
+  // Menu
+  &.menu {
+    .ai(c);
+    .flexd(c);
+    .m(t,2rem);
+
+    svg {
+      .m(r,0);
+    }
+
+    p {
+      .ai(c);
+      .ta(c);
+    }
+  }
+}

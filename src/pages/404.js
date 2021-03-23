@@ -14,8 +14,10 @@ const NotFoundPage = () => (
     <SEO title="404" />
 
     <PageHeader>
-      Well, shit.<br />
-      That's not on this site.
+      <h1>
+        Well, shit.<br />
+        That's not on this site.
+      </h1>
     </PageHeader>
 
     <SectIntro

@@ -13,6 +13,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -38,6 +39,7 @@ module.exports = {
           families: [
             `Arya:400,700`,
             `Anonymous Pro:400`,
+            `Teko:300,600,700`,
           ],
         },
       },
