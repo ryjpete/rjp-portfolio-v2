@@ -11,10 +11,28 @@
       .minH(670px);
     });
 
-  // Author
-  &.author {
+  // fH - Full Height section
+  &.fH {
     .ai(fs);
     .flexd(c);
+    .h();
     .jc(c);
+    .p(t,20rem);
+    .p(b,5rem);
+    
+      .rMinW(768px,{
+        .h(100vh);
+        .p(t,0);
+        .p(b,0);
+      });
+
+    h1 + p {
+      .mar(5rem,0,0,0);
+
+        .rMinW(768px,{
+          .m(t,7rem);
+          .m(l,30rem);
+        });
+    }
   }
 }
