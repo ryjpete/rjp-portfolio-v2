@@ -5,6 +5,13 @@ module.exports = {
     author: `RJP`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `fe21ql66hzkf`,
+        accessToken: `-piBFJpW3V4fEgH7zP8-WhYAoRnBoRn5QrXDUnaWEd8`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -13,7 +20,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-plugin-image`,
+    // `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -42,13 +49,6 @@ module.exports = {
             `Teko:300,600,700`,
           ],
         },
-      },
-    },
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: `fe21ql66hzkf`,
-        accessToken: `-piBFJpW3V4fEgH7zP8-WhYAoRnBoRn5QrXDUnaWEd8`,
       },
     },
   ],

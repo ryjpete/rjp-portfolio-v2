@@ -37,6 +37,14 @@ const Menu = ( props ) => (
           Resume
         </Link>
       </li>
+      <li>
+        <Link
+          to='/author'
+          activeClassName={styles.active}
+        >
+          Author
+        </Link>
+      </li>
     </ul>
 
     {/* <div className={styles.footer}>

@@ -4,6 +4,9 @@ import React from 'react'
 // Import component styles
 import styles from './sectNovel.module.less'
 
+// Import components
+import Button from '../button/button'
+
 // Import Images
 import imgGridYellow from '../../images/gridYellow.jpg'
 import imgGridGreen from '../../images/gridGreen.jpg'
@@ -31,6 +34,7 @@ const Novel = ( props ) => {
   const title = props.title.split(' ')
   const saga = props.package1.split(' ')
   const addClass = props.title.match(/\b(\w)/g).join('').toLowerCase()
+  // const href = props.title.toLowerCase().replaceAll(' ', '-')
   let gridImage
 
   switch (title[4]) {
@@ -162,6 +166,11 @@ const Novel = ( props ) => {
         </div>
 
         {props.tease}
+
+        <Button
+          color={setTextColor('#' + props.mainColor)}
+          copy='Read more'
+          href={`/novels/${props.slug}`} />
       </div>
     </section>
   )

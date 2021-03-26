@@ -39,6 +39,7 @@ const IndexPage = ({ data }) => (
             <SectIntro
               key={section.contentful_id}
               bgColor='#000000'
+              color='#ffffff'
               top={true}
               bottom={true}
               title={section.introSectionShowTitle ? section.introSectionTitle : ''}

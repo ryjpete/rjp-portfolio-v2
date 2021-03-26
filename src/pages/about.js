@@ -39,6 +39,7 @@ const About = ({ data }) => (
             <SectIntro
               key={section.contentful_id}
               bgColor='#000000'
+              color='#FFFFFF'
               top={true}
               bottom={true}
               title={section.introSectionShowTitle ? section.introSectionTitle : ''}

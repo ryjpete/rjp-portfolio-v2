@@ -43,7 +43,12 @@ const SectIntro = props => (
       : ''
     }
 
-    <div className={styles.content}>
+    <div
+      className={styles.content}
+      style={{
+        color: props.color,
+      }}
+    >
       {props.title
         ? <h2>{props.title}</h2>
         : ''

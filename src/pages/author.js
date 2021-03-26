@@ -31,6 +31,7 @@ const Author = ({ data }) => (
       <Novel
         key={novel.node.contentful_id}
         title={novel.node.title}
+        slug={novel.node.slug}
         package1={novel.node.seriesTitle1}
         package1Num={novel.node.bookNumber}
         package2={renderRichText(novel.node.seriesTitle2, options)}
@@ -68,11 +69,7 @@ export const pageQuery = graphql`
           tease {
             raw
           }
-          gridImage {
-            contentful_id
-            title
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
+          slug
         }
       }
     }
